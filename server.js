@@ -5,6 +5,8 @@ const workoutRoutes = require('./routes/workoutes')
 const userRoute = require('./routes/userRoutes')
 const mongoose = require('mongoose')
 
+const cors = require('cors')
+
 const app = express()
 
 //listen for requests
@@ -26,6 +28,8 @@ app.use((req,res,next)=>{
 })
 
 app.use(express.json())
+
+app.use(cors())
 
 app.use('/user',userRoute)
 app.use('/api/workouts',workoutRoutes)
